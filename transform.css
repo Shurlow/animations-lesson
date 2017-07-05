@@ -22,7 +22,7 @@
 
 .pseudo {
   margin-bottom: 2em;
-  background: blue;
+  background: #370DD8;
   color: white;
   /*opacity: 0.3;*/
   position: relative;
@@ -32,7 +32,7 @@
 
 .pseudo:before {
   content: 'before';
-  background: red;
+  background: #E20D63;
   position: absolute;
   top: 15px;
   left: 15px;
@@ -42,7 +42,7 @@
 
 .pseudo:after {
   content: 'after';
-  background: green;
+  background: #FFC528;
   position: absolute;
   top: 30px;
   left: 30px;
@@ -61,7 +61,7 @@
   padding: 0.5em;
   margin-top: 1em;
   margin-bottom: 1em;
-  background: blue;
+  background: #370DD8;
   color: white;
   border-radius: 3px;
 }

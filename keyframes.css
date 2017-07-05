@@ -1,22 +1,3 @@
-/*
-@keyframes breathe {
-  0% {
-    opacity: 1
-  }
-  50% {
-    opacity: 0.5;
-  }
-  100% {
-    opacity: 0
-  }
-}
-
-.breathe {
-  animation: breathe  0.5s infinite;
-}*/
-
-
-
 @keyframes shake {
   0%, 100% {
     transform: translate3d(0, 0, 0);

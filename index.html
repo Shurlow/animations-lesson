@@ -3,17 +3,19 @@
   <head>
     <meta charset="utf-8">
     <title>Animations</title>
-    <script src="node_modules/animejs/anime.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js" charset="utf-8"></script>
     <script defer src="app.js" charset="utf-8"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" charset="utf-8"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/css.min.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="transition.css">
     <link rel="stylesheet" href="transform.css">
     <link rel="stylesheet" href="keyframes.css">
+    <link rel="stylesheet" href="libraries.css">
   </head>
   <body>
 
@@ -141,9 +143,8 @@ transition: background-color 3s;</code></pre>
 
 Rather then type all these out by hand, you might consider using a build tool like Webpack or <a href="https://github.com/postcss/autoprefixer">PostCSS</a>
 
-      <h2>🎉 Challenge #1:</h2>
-      <p>Edit <code>expanding-list.css</code> to include transitions on hover.</p>
-      <a href="challenge-1/expanding-list.html">Expanding List</a>
+      <h2>🎉 Challenge #1</h2>
+      <p>Edit <code>expanding-list.css</code> to include transitions on hover. <a href="challenge-1/expanding-list.html">Expanding List</a></p>
     </section>
 
     <section id='transform'>
@@ -222,9 +223,8 @@ Rather then type all these out by hand, you might consider using a build tool li
       <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transition-timing-function">MDN timing function</a>
       <a href="http://cubic-bezier.com/">cubic-bezier.com</a>
 
-      <h2>🎉 Challenge #2:</h2>
-      <p>Edit the existing CSS in <code>circle.css</code> to match the solution</p>
-      <a href="challenge-2/circle.html">Circle</a>
+      <h2>🎉 Challenge #2</h2>
+      <p>Edit the existing CSS in <code>circle.css</code> to match the solution <a href="challenge-2/circle.html">Circle</a></p>
     </section>
 
     <section id='keyframe'>
@@ -244,7 +244,7 @@ Rather then type all these out by hand, you might consider using a build tool li
         <li>CSS Properties</li>
       </ul>
 
-<pre><code class="css">@keyframes animation-name {
+<pre class="large"><code class="css">@keyframes animation-name {
   step1 (to, from, 0%) {
     property: value;
   }
@@ -254,18 +254,15 @@ Rather then type all these out by hand, you might consider using a build tool li
 }
 </code></pre>
 
-<pre><code class="css">@keyframes rainbow {
+<pre class="large"><code class="css">@keyframes rainbow {
   0%, 100% {
     color: red;
-    border-color: red;
   }
   33% {
     color: green;
-    border-color: green;
   }
   66% {
     color: blue;
-    border-color: blue;
   }
 }</code></pre>
 <div class="clearfix"></div>
@@ -299,6 +296,29 @@ Rather then type all these out by hand, you might consider using a build tool li
 
       <div class="module two">
         <div class="exercise">
+          <h3>Color Keyframes</h3>
+          <a class='btn rainbow'>Rainbow</a>
+          <pre><code class="css">@keyframes rainbow {
+  0%, 100%{
+    color: red;
+    border-color: red;
+  }
+  33% {
+    color: green;
+    border-color: green;
+  }
+  66% {
+    color: blue;
+    border-color: blue;
+  }
+}
+
+.rainbow {
+  animation: rainbow 2s infinite;
+}</code></pre>
+        </div>
+        <div class="exercise">
+          <h3>Transform Keyframes</h3>
           <a class='btn shake'>Shake</a>
 <pre><code class="css">@keyframes shake {
   0%, 100% {
@@ -318,12 +338,10 @@ Rather then type all these out by hand, you might consider using a build tool li
   animation: shake 1s;
 }</code></pre>
         </div>
-        <div class="exercise">
-          <a class='btn rainbow'>Rainbow</a>
-        </div>
+
       </div>
 
-      <h2>🎉 Challenge #3:</h2>
+      <h2>🎉 Challenge #3</h2>
       <ul>
         <li><p>Edit <code>form.css</code> to match the solution: <a href="challenge-3/form.html">Form</a></p></li>
         <li><p>Edit <code>loaders.css</code> to match the solution: <a href="challenge-3/loaders.html">Loaders</a></p></li>
@@ -333,23 +351,38 @@ Rather then type all these out by hand, you might consider using a build tool li
     <section id='libraries'>
       <h1>Using Animation Libraries</h1>
       <h2>What is Anime.js?</h2>
+      <p>A "javascript animation engine"</p>
       <a href="http://animejs.com/">animejs.com</a>
-      <div class="module">
+      <div class="module two">
         <div class="exercise">
+          <h3>Transition Input Value</h3>
           <input type="number" id="numberCounter" value='0'>
           <a id='startCounter' class="btn">Count</a>
+<pre><code class='javascript'>var numberCounter = anime({
+  targets: '#numberCounter',
+  value: 1000,
+  round: 1,
+  easing: 'easeInOutExpo'
+});</code></pre>
         </div>
         <div class="exercise">
-          <div class="blocks">
-            <p class="el">Inspirational Message Here</p>
-            <p class="el">Inspirational Message Here</p>
-            <p class="el">Inspirational Message Here</p>
+          <h3>Translate Cube</h3>
+          <div class="anime2">
+            <div id='cube'></div>
           </div>
-        </div>
-        <div class="exercise">
-
+<pre><code class="javascript">var cube = anime({
+  targets: '#cube',
+  translateX: 250,
+  direction: 'alternate'
+});</code></pre>
         </div>
       </div>
+
+      <h2>🎉 Challenge #4</h2>
+      <p>Lets find an example of a UI/UX animation you love and try to code it! Use anime.js and any other CSS styles needed to achieve the intended animation</p>
+      <p>You can write your code in the <code>challenge-4/anime-challenge.html</code> file. <a href="challenge-4/anime-challenge.html">anime-challenge</a></p>
+
+      <a href="https://codepen.io/hoqqanen/full/zvqGEG/">One Example</a>
     </section>
 
   </body>

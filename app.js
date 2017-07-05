@@ -9,9 +9,19 @@ var numberCounter = anime({
 });
 
 document.querySelector('#startCounter').addEventListener('click', function(e) {
-  numberCounter.play()
+  numberCounter.restart()
 })
 
+
+var cube = anime({
+  targets: '#cube',
+  translateX: 250,
+  direction: 'alternate'
+});
+
+document.querySelector('.anime2').addEventListener('click', function(e) {
+  cube.restart()
+})
 
 
 // document.querySelector('#shake').addEventListener('click', function(e) {

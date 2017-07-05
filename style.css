@@ -39,11 +39,6 @@ a:hover {
   text-decoration: underline;
 }
 
-pre {
-  /*white-space: pre-wrap;*/
-  /*display: inline-block;*/
-}
-
 pre.wrap {
   white-space: pre-wrap;
 }
@@ -120,7 +115,7 @@ pre.wrap {
   left: 2rem;
 }
 
-#keyframe pre {
+pre.large {
   display: inline-block;
   float: left;
   margin-right: 2rem;

@@ -1,0 +1,10 @@
+#cube {
+  height: 30px;
+  width: 30px;
+  background: #FFC528;
+  margin-top: 1em;
+}
+
+#cube:hover {
+  cursor: pointer;
+}
