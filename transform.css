@@ -1,0 +1,92 @@
+
+/* transition-transform */
+.tt {
+  transition: transform 1.5s;
+}
+
+.skew:hover {
+  transform: skewX(30deg);
+}
+
+.rotate:hover {
+  transform: rotate(360deg);
+}
+
+.translate:hover {
+  transform: translate(15px, -15px);
+}
+
+.scale:hover {
+  transform: scale(1.5);
+}
+
+.pseudo {
+  margin-bottom: 2em;
+  background: blue;
+  color: white;
+  /*opacity: 0.3;*/
+  position: relative;
+  width: 60px;
+  height: 60px;
+}
+
+.pseudo:before {
+  content: 'before';
+  background: red;
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  width: 60px;
+  height: 60px;
+}
+
+.pseudo:after {
+  content: 'after';
+  background: green;
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  width: 60px;
+  height: 60px;
+}
+
+.pseudo-animated:hover:before {
+  transform: translate(20px, -20px);
+}
+
+.easyBlocks div {
+  /*display: inline-block;*/
+  /*height: 20px;*/
+  width: 160px;
+  padding: 0.5em;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  background: blue;
+  color: white;
+  border-radius: 3px;
+}
+
+.easyBlocks div:hover {
+  cursor: pointer;
+  transform: translateX(160px);
+}
+
+.linear {
+  transition: transform 1s linear;
+}
+
+.ease {
+  transition: transform 1s ease;
+}
+
+.ease-in {
+  transition: transform 1s ease-in;
+}
+
+.ease-out {
+  transition: transform 1s ease-out;
+}
+
+.ease-in-out {
+  transition: transform 1s ease-in-out;
+}

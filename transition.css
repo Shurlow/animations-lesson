@@ -1,0 +1,38 @@
+/* Example 1 */
+.fade:hover {
+  opacity: 0;
+}
+
+.transition-opacity {
+  transition: opacity 0.75s;
+}
+
+
+/* Example 2*/
+.blue {
+  background: #E20D63;
+  color: white;
+}
+
+.blue:hover {
+  background: #370DD8;
+}
+
+.transition-bg {
+  transition: background 0.75s;
+}
+
+
+/* Example 3*/
+.shadow {
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+.shadow:active {
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)
+
+}
+
+.transition-shadow {
+  transition: box-shadow 0.15s;
+}

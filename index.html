@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Animations</title>
+    <script src="node_modules/animejs/anime.min.js"></script>
+    <script defer src="app.js" charset="utf-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" charset="utf-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/css.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="transition.css">
+    <link rel="stylesheet" href="transform.css">
+    <link rel="stylesheet" href="keyframes.css">
+  </head>
+  <body>
+
+    <section>
+      <h1>CSS Animations and Beyond</h1>
+      <h2>What is Animation? Why is Animation?</h2>
+      <p>Take a look at these examples of front-end animation. What do you notice about their animations? How do they differ in the purpose / approach?</p>
+      <ul>
+        <li><a href="https://codepen.io/GauravBarde/full/oYexLx/">Example 1</a></li>
+        <li><a href="https://codepen.io/jhereg00/full/rjGBax/">Example 2</a></li>
+        <li><a href="https://codepen.io/boudra/full/YXzLBN/">Example 3</a></li>
+      </ul>
+
+      <h2>We will explore:</h2>
+      <ul>
+        <li>
+          <a href="#transition">CSS Transition</a>
+        </li>
+        <li>
+          <a href="#transform">CSS Transform</a>
+        </li>
+        <li>
+          <a href="#keyframe">Keyframe Animations</a>
+        </li>
+        <li>
+          <a href="#libraries">Animation Libraries</a>
+        </li>
+      </ul>
+    </section>
+
+    <section id='transition'>
+      <h1>CSS Transition</h1>
+      <p>Transitions cause changes to a property to take place over a period of time (duration).</p>
+      <p>Using the <code>transition</code> property we can define which CSS property to transition, how long it takes etc. The broswer will interpolate values for the property over the time.</p>
+
+     <pre class="wrap"><code><strong>transition: property</strong>(defaults to All) <strong>duration</strong>(needs to be specified) <strong>timing-function</strong>(defaults to ease) <strong>delay</strong>(defaults to 0)</code></pre>
+
+     <ul>
+       <li>Order of the transition parameters is irrelevant so long as you have a duration specified. (duration must be specified before delay)</li>
+       <li>Not all CSS properties can be transitioned, only those with middle transition states</li>
+       <li>Properties that CAN be transitioned:</li>
+       <ul>
+         <li>background-color</li>
+         <li>color</li>
+         <li>opacity</li>
+         <li>font-size</li>
+         <li>padding</li>
+         <li>margin</li>
+         <li>box-shadow</li>
+         <li>...</li>
+       </ul>
+       <li>Properties that CANNOT be transitioned:</li>
+       <ul>
+         <li>visibility</li>
+         <li>font-weight</li>
+         <li>font-family</li>
+         <li>...</li>
+       </ul>
+     </ul>
+
+     Example:
+    <pre><code class="css">transition: opacity 0.25s;</code></pre>
+
+      <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transition">MDN Transition</a>
+
+      <div class="module">
+        <div class="exercise">
+          <h3>Opacity</h3>
+          <a class="btn fade">Fade</a>
+          <a class="btn fade transition-opacity">Transition Fade</a>
+          <pre>
+            <code class="css">.transition-opacity:hover {
+  opacity: 0;
+}
+
+.transition-opacity {
+  transition: opacity 0.75s;
+}</code>
+          </pre>
+        </div>
+        <div class="exercise">
+          <h3>Background</h3>
+          <a class="btn blue">Blue</a>
+          <a class="btn blue transition-bg">Transition Blue</a>
+          <pre><code class="css">.blue {
+  background: #E20D63;
+}
+
+.blue:hover {
+  background: #370DD8;
+}
+
+.transition-bg {
+  transition: background 0.75s;
+}</code></pre>
+        </div>
+        <div class="exercise">
+          <h3>Box Shadow</h3>
+          <a class="btn shadow">Shadow</a>
+          <a class="btn shadow transition-shadow">Transition Shadow</a>
+          <pre><code class='css'>.shadow {
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+.shadow:active {
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)
+}
+
+.transition-shadow {
+  transition: box-shadow 0.15s;
+}
+          </code></pre>
+        </div>
+      </div>
+
+      <h2>Note about Browser Support</h2>
+      <p>Until all browsers adopt the standard version, you will want to include vendor prefixes to allow Cross-Browser Compatibility. This holds true for the transition property as well as other animation based css properties described in this article.</p>
+      <p>Here is an example of vendor prefixes with the transition property:</p>
+
+<pre><code class="css">-webkit-transition: background-color 3s;
+-moz-transition: background-color 3s;
+-o-transition: background-color 3s;
+-ms-transition: background-color 3s;
+transition: background-color 3s;</code></pre>
+
+Rather then type all these out by hand, you might consider using a build tool like Webpack or <a href="https://github.com/postcss/autoprefixer">PostCSS</a>
+
+      <h2>🎉 Challenge #1:</h2>
+      <p>Edit <code>expanding-list.css</code> to include transitions on hover.</p>
+      <a href="challenge-1/expanding-list.html">Expanding List</a>
+    </section>
+
+    <section id='transform'>
+      <h1>CSS Transform</h1>
+      <p>The <code>transform</code> property lets you modify elements in their coordinate space by skewing, rotating, translating or scaling. It can be incredily useful when combined with the transition property to create rich animations</p>
+      <pre><code class="css">transform: function(params);</code></pre>
+      <p>transform functions:</p>
+      <ul>
+        <li>skew(degrees)</li>
+        <li>rotate(degrees)</li>
+        <li>translate(x, y)</li>
+        <li>scale(number)</li>
+        <li>matix(number, ...)</li>
+      </ul>
+
+      <div class="module">
+        <div class="exercise">
+          <h3>Skew</h3>
+          <p>Skews an element along the X and Y-axis by the given angle</p>
+          <a class='btn skew tt'>Skew Me!</a>
+          <pre><code class='css'>transform: skewX(20deg);</code></pre>
+        </div>
+        <div class="exercise">
+          <h3>Rotate</h3>
+          <p>Rotates an element clockwise or counter-clockwise according to a given degree</p>
+          <a class='btn rotate tt'>Rotate Me!</a>
+          <pre><code class="css">transform: rotate(360deg);</code></pre>
+        </div>
+        <div class="exercise">
+          <h3>Translate</h3>
+          <p>Moves an element from its current position</p>
+          <a class='btn translate tt'>Translate Me!</a>
+          <pre class="wrap"><code class="css">transform: translate(15px, -15px);</code></pre>
+        </div>
+        <div class="exercise">
+          <h3>Scale</h3>
+          <p>Increases or decreases the size of an element</p>
+          <a class='btn scale tt'>Scale Me!</a>
+          <pre><code class="css">transform: scale(1.5);</code></pre>
+        </div>
+      </div>
+
+      <h2>Pseudo-elements</h2>
+      <a href="https://css-tricks.com/pseudo-element-roundup/">CSS Tricks - Pseudo Elements</a>
+      <div class="module two">
+        <div class="exercise">
+          <h3>Simple Pseudo Elements</h3>
+          <div class="pseudo">
+            content
+          </div>
+        </div>
+        <div class="exercise">
+          <h3>Animating Pseudo Elements</h3>
+          <div class="pseudo pseudo-animated">
+            content
+          </div>
+<pre><code class="css">.target:hover:before {
+  transform: translate(20px, -20px);
+}</code></pre>
+        </div>
+      </div>
+
+      <h2>Transition Timing Functions</h2>
+      <p>MDN states "The transition-timing-function CSS property is used to describe how the intermediate values of the CSS properties being affected by a transition effect are calculated. This in essence lets you establish an acceleration curve, so that the speed of the transition can vary over its duration."</p>
+
+<pre><code class="css">transition: transform 1s ease-in-out;</code></pre>
+
+      <div class="easyBlocks">
+        <div class="linear">linear</div>
+        <div class="ease">ease(default)</div>
+        <div class="ease-in">ease-in</div>
+        <div class="ease-out">ease-out</div>
+        <div class="ease-in-out">ease-in-out</div>
+      </div>
+
+      <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transition-timing-function">MDN timing function</a>
+      <a href="http://cubic-bezier.com/">cubic-bezier.com</a>
+
+      <h2>🎉 Challenge #2:</h2>
+      <p>Edit the existing CSS in <code>circle.css</code> to match the solution</p>
+      <a href="challenge-2/circle.html">Circle</a>
+    </section>
+
+    <section id='keyframe'>
+      <h1>Keyframe Animations</h1>
+      <h2>What is a Keyframe Animation?</h2>
+      <p>A keyframe animation is a detailed list of how css property animation takes place over time.</p>
+      <p>There are two key parts to creating a keyframe animation:</p>
+      <ol>
+        <li><strong>Keyframe Definition</strong> - defines the stages and styles of the animation using <code>@keyframes</code></li>
+        <li><strong>Animation Properties</strong> - assign @keyframes to specific element and specify animation details</li>
+      </ol>
+      <h3>#1 Keyframes</h3>
+      <p>Each @keyframes is composed of:</p>
+      <ul>
+        <li>Name of the animation: A name that describes the animation. e.i. rainbow</li>
+        <li>Steps of the animation: Each step is represented as a percentage from (initial step) 0% to (final step) 100%.</li>
+        <li>CSS Properties</li>
+      </ul>
+
+<pre><code class="css">@keyframes animation-name {
+  step1 (to, from, 0%) {
+    property: value;
+  }
+  step2 (33%, 50%, ...) {
+    property: value;
+  }
+}
+</code></pre>
+
+<pre><code class="css">@keyframes rainbow {
+  0%, 100% {
+    color: red;
+    border-color: red;
+  }
+  33% {
+    color: green;
+    border-color: green;
+  }
+  66% {
+    color: blue;
+    border-color: blue;
+  }
+}</code></pre>
+<div class="clearfix"></div>
+
+      <h3>#2 Animation Properties</h3>
+      <p>Animation properties do 2 things:</p>
+      <ol>
+        <li>Assign the @keyframes to the elements that you want to animate</li>
+        <li>Define how the animated plays</li>
+      </ol>
+
+      <p>The first 2 parameters are requred</p>
+      <ul>
+        <li><strong>animation-name (required)</strong></li>
+        <li><strong>animation-duration (required)</strong></li>
+        <li>animation-timing-function</li>
+        <li>animation-delay</li>
+        <li>animation-iteration-count</li>
+        <li>animation-direction</li>
+        <li>animation-fill-mode</li>
+        <li>animation-play-state</li>
+      </ul>
+
+      <p>You can define each of the above properties indevidually, or use the shorthand:</p>
+
+<pre><code class="css">.target {
+  animation: rainbow 1s;
+}
+</code></pre>
+<div class="clearfix"></div>
+
+      <div class="module two">
+        <div class="exercise">
+          <a class='btn shake'>Shake</a>
+<pre><code class="css">@keyframes shake {
+  0%, 100% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  10%, 30%, 50%, 70%, 90% {
+    transform: translate3d(-10px, 0, 0);
+  }
+
+  20%, 40%, 60%, 80% {
+    transform: translate3d(10px, 0, 0);
+  }
+}
+
+.shake:hover {
+  animation: shake 1s;
+}</code></pre>
+        </div>
+        <div class="exercise">
+          <a class='btn rainbow'>Rainbow</a>
+        </div>
+      </div>
+
+      <h2>🎉 Challenge #3:</h2>
+      <ul>
+        <li><p>Edit <code>form.css</code> to match the solution: <a href="challenge-3/form.html">Form</a></p></li>
+        <li><p>Edit <code>loaders.css</code> to match the solution: <a href="challenge-3/loaders.html">Loaders</a></p></li>
+      </ul>
+    </section>
+
+    <section id='libraries'>
+      <h1>Using Animation Libraries</h1>
+      <h2>What is Anime.js?</h2>
+      <a href="http://animejs.com/">animejs.com</a>
+      <div class="module">
+        <div class="exercise">
+          <input type="number" id="numberCounter" value='0'>
+          <a id='startCounter' class="btn">Count</a>
+        </div>
+        <div class="exercise">
+          <div class="blocks">
+            <p class="el">Inspirational Message Here</p>
+            <p class="el">Inspirational Message Here</p>
+            <p class="el">Inspirational Message Here</p>
+          </div>
+        </div>
+        <div class="exercise">
+
+        </div>
+      </div>
+    </section>
+
+  </body>
+</html>

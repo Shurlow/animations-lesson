@@ -1,0 +1,59 @@
+.loader {
+  margin: 2em;
+}
+
+/* Add CSS bellow to complete the .spin & .pulse classes with keyframe animations*/
+
+.spin {
+  width: 30px;
+  height: 30px;
+  border: 4px solid rgba(0,0,0,0.2);
+  border-radius: 50%;
+  border-top-color: rgba(23,73,229, 0.6);
+  animation: spin 1s infinite linear;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.pulse {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.2);
+  position: relative;
+  animation: pulse 1.5s infinite;
+  animation-delay: 0.33s;
+}
+
+.pulse:before, .pulse:after {
+  content: '';
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.2);
+  animation: pulse 1.5s infinite;
+}
+
+.pulse:before {
+  left: -20px;
+}
+
+.pulse:after {
+  left: 20px;
+  animation-delay: 0.66s;
+}
+
+
+@keyframes pulse {
+  50% {
+    background: rgba(23,73,229, 0.8)
+  }
+}

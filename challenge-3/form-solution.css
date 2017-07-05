@@ -1,0 +1,44 @@
+form {
+  width: 400px;
+}
+
+button {
+  background: white;
+  outline: none;
+}
+
+input {
+  width: 250px;
+  margin-bottom: 2em;
+  padding: 1em;
+  outline: none;
+  border: 1px solid;
+  border-radius: 2px;
+}
+
+input:focus {
+  border: 1px solid #1749E5;
+}
+
+.error:focus {
+  border-color: red;
+}
+
+.error {
+  border-color: red;
+  animation: shake 1s;
+}
+
+@keyframes shake {
+  0%, 100% {
+    transform: translateY(0) rotate(0);
+  }
+
+  10%, 30%, 50%, 70%, 90% {
+    transform: translateY(-10px) rotate(-3deg);
+  }
+
+  20%, 40%, 60%, 80% {
+    transform: translateY(-10px) rotate(3deg);
+  }
+}

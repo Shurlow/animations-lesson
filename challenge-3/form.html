@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Form Animation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="form.css">
+  </head>
+  <body>
+    <div class="center">
+      <h1>Form Feedback</h1>
+      <a class='solution' href="form-solution.html">solution</a>
+      <form class="" onsubmit="event.preventDefault()">
+        <input type="text" name="Secret" value="" placeholder="Type a special secret here...">
+        <button class="btn" type="submit" name="button">Submit</button>
+      </form>
+    </div>
+    <script defer type="text/javascript">
+      var form = document.querySelector('form');
+      var input = document.querySelector('input');
+
+      form.addEventListener('submit', function(e){
+        e.preventDefault()
+        input.classList.add('error')
+      })
+
+      input.addEventListener('keypress', function(e){
+        // e.preventDefault()
+        console.log('form changed');
+        input.classList.remove('error')
+      })
+    </script>
+  </body>
+</html>

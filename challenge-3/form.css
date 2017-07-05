@@ -1,0 +1,32 @@
+form {
+  width: 400px;
+}
+
+button {
+  background: white;
+  outline: none;
+}
+
+input {
+  width: 250px;
+  margin-bottom: 2em;
+  padding: 1em;
+  outline: none;
+  border: 1px solid;
+  border-radius: 2px;
+}
+
+input:focus {
+  border: 1px solid #1749E5;
+}
+
+.error:focus {
+  border-color: red;
+}
+
+.error {
+  border-color: red;
+  /* Add Animation HERE */
+}
+
+/* define @keyframes HERE */

@@ -1,0 +1,131 @@
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  /*padding: 2em;*/
+}
+
+section {
+  margin-bottom: 6em;
+  /*border: 2px solid;*/
+  border-radius: 2px;
+  padding: 2em;
+  min-height: 400px;
+  max-width: 1024px;
+  margin: auto;
+}
+
+h1 {
+  margin: 0;
+  font-size: 32px;
+  border-bottom: 1px solid;
+}
+
+h3 {
+  margin-top: 0;
+}
+
+p, ul, h3 {
+  line-height: 1.5em;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+pre {
+  /*white-space: pre-wrap;*/
+  /*display: inline-block;*/
+}
+
+pre.wrap {
+  white-space: pre-wrap;
+}
+
+.module {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2em;
+  margin-bottom: 2em;
+  flex-wrap: wrap;
+}
+
+.module.two {
+  justify-content: flex-start;
+}
+
+.module.two .exercise {
+  width: 42%;
+  margin-right: 1.5em;
+}
+
+.exercise {
+  width: 32%;
+  padding: 1em;
+  margin-top: 1.5em;
+  border: 2px solid;
+  border-radius: 2px;
+}
+
+.two .exercise {
+  /*width: 48%;*/
+}
+
+.btn {
+  min-width: 80px;
+  text-align: center;
+  border: 2px solid black;
+  border-radius: 2px;
+  display: inline-block;
+  /*margin: 1em;*/
+  padding: 1em;
+  color: black;
+  text-decoration: none;
+}
+
+.btn:hover {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+
+.source {
+  margin-top: 1em;
+  display: block;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /*flex-direction: column;*/
+  height: 100vh;
+}
+
+.center > h1 {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+}
+
+.solution {
+  position: absolute;
+  top: 5rem;
+  left: 2rem;
+}
+
+#keyframe pre {
+  display: inline-block;
+  float: left;
+  margin-right: 2rem;
+}
+
+.clearfix {
+  clear: both;
+}

@@ -1,0 +1,42 @@
+.loader {
+  margin: 2em;
+}
+
+/* Add CSS bellow to complete the .spin & .pulse classes with keyframe animations*/
+
+.spin {
+  width: 30px;
+  height: 30px;
+  border: 4px solid rgba(0,0,0,0.2);
+  border-radius: 50%;
+}
+
+/* Try animating pseudo classes with .pulse */
+
+.pulse {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.2);
+  position: relative;
+  /* HERE */
+}
+
+.pulse:before, .pulse:after {
+  content: '';
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.2);
+  /* HERE */
+}
+
+.pulse:before {
+  left: -20px;
+}
+
+.pulse:after {
+  left: 20px;
+  /* HERE*/
+}

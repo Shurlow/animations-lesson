@@ -1,0 +1,25 @@
+ul {
+  width: 350px;
+  border: 2px solid;
+  border-radius: 2px;
+  list-style: none;
+  padding: 0;
+  color: white;
+}
+
+li:nth-child(1) {
+  background: #1749E5;
+}
+li:nth-child(2) {
+  background: #FFC528;
+}
+li:nth-child(3) {
+  background: #E20D63;
+}
+
+/* Add CSS bellow to expand the list items when hovered using the transition property */
+
+li {
+  padding: 1em;
+  cursor: pointer;
+}
