@@ -1,7 +1,5 @@
 # CSS Animations Lesson @ gConf
 
-![Animaniacs](https://upload.wikimedia.org/wikipedia/en/thumb/d/dd/Animaniacs.svg/1280px-Animaniacs.svg.png)
-
 ## Setup Instructions
 - clone repo
 - `open index.html`
