@@ -24,7 +24,6 @@
   margin-bottom: 2em;
   background: #370DD8;
   color: white;
-  /*opacity: 0.3;*/
   position: relative;
   width: 60px;
   height: 60px;
@@ -55,8 +54,6 @@
 }
 
 .easyBlocks div {
-  /*display: inline-block;*/
-  /*height: 20px;*/
   width: 160px;
   padding: 0.5em;
   margin-top: 1em;
